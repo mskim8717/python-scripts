@@ -115,11 +115,11 @@ while True:
             if flag is False:
                 print('최초등록')
                 df_orig = pd.DataFrame(tempList, columns=['date', 'time', 'name'])
-                df_orig.to_csv('aa.csv', encoding='euc-kr')
+                # df_orig.to_csv('df_orig.csv', encoding='euc-kr')
                 flag = True
             else:
                 df_update = pd.DataFrame(tempList, columns=['date', 'time', 'name'])
-                df_update.to_csv('bb.csv', encoding='euc-kr')
+                # df_update.to_csv('df_update.csv', encoding='euc-kr')
                 if df_orig.equals(df_update) is False:
                     status = 'Empty'
                     df_merge = df_orig.merge(df_update, how='outer', on=['date', 'name'], indicator=True)

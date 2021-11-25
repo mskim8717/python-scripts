@@ -25,6 +25,10 @@ options.add_argument("no-sandbox")
 # 브라우저 사이즈 : 현재 창을 열지 않는 방식으로 구현
 # options.add_argument('window-size=800,600')
 
+options.add_argument("disable-gpu")   # 가속 사용 x
+options.add_argument("lang=ko_KR")    # 가짜 플러그인 탑재
+options.add_argument('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36')  # user-agent 이름 설정
+
 ''' 1. 자동로그인 제어 '''
 user_id = input('아이디를 입력하세요: ')
 user_pw = getpass.getpass('비밀번호를 입력하세요: ')

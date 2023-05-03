@@ -8,6 +8,7 @@ import requests
 import getpass
 import json
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 options = webdriver.ChromeOptions()
 
@@ -25,16 +26,16 @@ user_id = input('아이디를 입력하세요: ')
 user_pw = getpass.getpass('비밀번호를 입력하세요: ')
 
 # 드라이버 위치 경로 입력
-driver = webdriver.Chrome('d:/999_developer/chromedriver.exe', options=options)
+driver = webdriver.Chrome(options=options)
 
 # url을 이용하여 브라우저로 접속
 driver.get('http://www.sjsmped.com/bbs/login.php?url=%2F')
 
 driver.implicitly_wait(3)
 
-driver.find_element_by_id('login_id').send_keys(user_id)
-driver.find_element_by_id('login_pw').send_keys(user_pw)
-driver.find_element_by_xpath('//*[@id="login_fs"]/button').click()
+driver.find_element(By.ID, 'login_id').send_keys(user_id)
+driver.find_element(By.ID, 'login_pw').send_keys(user_pw)
+driver.find_element(By.XPATH, '//*[@id="login_fs"]/button').click()
 
 # 로그인 된 화면 캡처
 # driver.get_screenshot_as_file('capture.png')
@@ -67,10 +68,10 @@ def post_message(channel, text):
 while True:
     try:
         tempList = []
-        for i in range(10, 12):
+        for i in range(5, 6):
             try:
                 print(str(i) + '월 데이터 조회 중....')
-                url = 'http://www.sjsmped.com/bbs/board.php?bo_table=yb_board03&year=2021&month=' + str('{0:02d}'.format(i))
+                url = 'http://www.sjsmped.com/bbs/board.php?bo_table=yb_board03&year=2023&month=' + str('{0:02d}'.format(i))
                 print(url)
                 driver.get(url)
 
